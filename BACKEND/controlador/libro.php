@@ -23,7 +23,7 @@ switch ($funcion) {
 }
 function obtener()
 {
-    $resultado = (new usuario())->obtener();
+    $resultado = (new libro())->obtener();
     echo json_encode($resultado);
 }
 function agregar()
@@ -31,13 +31,13 @@ function agregar()
     $ci = $_POST['ci'];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
-    $resultado = (new usuario())->agregar($ci, $nombre, $apellido);
+    $resultado = (new libro())->agregar($ci, $nombre, $apellido);
     echo json_encode($resultado);
 }
 function eliminar()
 {
     $ci = $_POST['ci'];
-    $resultado = (new usuario())->eliminar($ci);
+    $resultado = (new libro())->eliminar($ci);
     echo json_encode($resultado);
 }
 
@@ -49,6 +49,6 @@ function editar()
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
 
-    $resultado = (new usuario())->editar($id, $ci, $nombre, $apellido);
+    $resultado = (new libro())->editar($id, $ci, $nombre, $apellido);
     echo json_encode($resultado);
 }

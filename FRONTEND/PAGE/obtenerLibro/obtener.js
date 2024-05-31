@@ -11,24 +11,17 @@ async function obtenerUsuarios() {
 
 
 
-
-
-
-
-
 function Listar(usuarios) {
-
     let tbodyElement = document.querySelector("#cuerpoTablaUsuarios");
-    usuarios.foreach((usuarios) => {
+    usuarios.forEach((usuario) => {
         tbodyElement.innerHTML += `
 
 <tr>
-    <td>${usuarios[i].ci} </td>
-    <td>${usuarios[i].nombre}</td>
-    <td>${usuarios[i].apellido} </td>
+    <td>${usuario.ci} </td>
+    <td>${usuario.nombre}</td>
+    <td>${usuario.apellido} </td>
 </tr>
     `;
     }
     )
 }
-

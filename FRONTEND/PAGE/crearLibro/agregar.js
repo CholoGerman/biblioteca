@@ -5,7 +5,7 @@ window.onload = () => {
     formElement.onsubmit = async (e) => {
         e.preventDefault();
         let formFormData = new FormData(formElement);
-        let url = "../../../BACKEND/controlador/usuario.php?funcion=agregar";
+        let url = "../../../BACKEND/controlador/libro.php?funcion=agregar";
 
         let config = {
             method: 'POST',

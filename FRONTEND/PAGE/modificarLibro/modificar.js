@@ -1,30 +1,42 @@
 window.onload = () => {
-
-    let formElement = document.querySelector("#form_editu");
-    console.log("a", formElement);
-    formElement.onsubmit = async (e) => {
-        e.preventDefault();
-        let formFormData = new FormData(formElement);
-        let url = "../../../BACKEND/controlador/usuario.php?funcion=editar";
-
-        let config = {
-            method: 'POST',
-            body: formFormData
-
-        }
-        let respuesta = await fetch(url, config);
-        let datos = await respuesta.json()
-        console.log(datos);
+    obtenerUsuarios();
+}
+async function obtenerUsuarios() {
+    let url = "../../../BACKEND/controlador/usuario.php?funcion=obtener";
+    let respuesta = await fetch(url);
+    let datos = await respuesta.json()
+    console.log(datos);
+    Listar(datos)
+}
 
 
 
-        if (datos = false) {
-            alert("Error")
-        }
 
-        else {
-            alert("Usuario editado")
-        }
+
+function cargarDatos(ci, nombre, apellido) {
+
+    document.querySelector("#id").value = ci;
+    document.querySelector("#ci").value = ci;
+    document.querySelector("#nombre").value = nombre;
+    document.querySelector("#apellido").value = apellido;
+}
+
+
+
+
+function Listar(usuarios) {
+
+    let tbodyElement = document.querySelector("#cuerpoTablaUsuarios");
+    usuarios.forEach((usuario) => {
+        tbodyElement.innerHTML += `
+
+<tr>
+    <td>${usuario.ci} </td>
+    <td>${usuario.nombre}</td>
+    <td>${usuario.apellido} </td>
+    <td><button onclick="cargarDatos('${usuario.ci}','${usuario.nombre}','${usuario.apellido}')">Modificar</button></td>
+</tr>
+        `;
     }
-    
+);
 }

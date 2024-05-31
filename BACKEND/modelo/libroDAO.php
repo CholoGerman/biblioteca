@@ -1,7 +1,7 @@
 <?php
 require_once '../conexion/conexion.php';
 
-class usuario
+class libro
 {
 
     function obtener()

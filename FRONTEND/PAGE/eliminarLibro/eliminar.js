@@ -1,8 +1,8 @@
 window.onload = () => {
-    obtenerUsuarios();
+    obtenerLibros();
 }
-async function obtenerUsuarios() {
-    let url = "../../../BACKEND/controlador/usuario.php?funcion=eliminar";
+async function obteneribros() {
+    let url = "../../../BACKEND/controlador/libro.php?funcion=obtener";
     let respuesta = await fetch(url);
     let datos = await respuesta.json()
     console.log(datos);
@@ -13,22 +13,32 @@ async function obtenerUsuarios() {
 
 
 
-function eliminarUsuario(ci) {
+async function eliminarLibro(ci) {
+    let formData = new FormData();
+    formData.append("ci", ci);
+    let url = "../../../BACKEND/controlador/libro.php?funcion=eliminar";
+    let config ={
+        method:"POST",
+        body:formData
+        }
+    let respuesta = await fetch(url,config);
+    let datos = await respuesta.json()
+    console.log(datos);
     alert(ci);
 }
 
 
-function Listar(usuarios) {
+function Listar(libros) {
 
-    let tbodyElement = document.querySelector("#cuerpoTablaUsuarios");
-    usuarios.foreach((usuario) => {
+    let tbodyElement = document.querySelector("#cuerpoTablalibros");
+    libros.forEach((libro) => {
         tbodyElement.innerHTML += `
 
 <tr>
-    <td>${usuario[i].ci} </td>
-    <td>${usuario[i].nombre}</td>
-    <td>${usuario[i].apellido} </td>
-    <td><button onclcl="eliminarUsuario(${usuario[i].ci})">Eliminar</button></td>
+    <td>${libro.ci} </td>
+    <td>${libro.nombre}</td>
+    <td>${libro.apellido} </td>
+    <td><button onclick="eliminarlibro(${libro.ci})">Eliminar</button></td>
 </tr>
     `;
     }
