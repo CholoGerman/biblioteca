@@ -3,51 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar Usuarios</title>
+    <title>Modificar Libros</title>
     <script src="modificar.js"></script>
     <link rel="stylesheet" href="../../style/index.css">
 </head>
 <body>
     <header>
-        <a href="../crearUsuario/agregar.html">Crear usuario</a>
-        <a href="../eliminarUsuario/eliminar.html">Eliminar usuario</a>
-        <a href="../obtenerUsuario/obtener.html">Obtener usuarios</a>
-        <a href="../modificarUsuario/modificar.html">Modificar usuarios</a>
+        <a href="../crearLibro/agregar.html">Crear Libro</a>
+        <a href="../eliminarLibro/eliminar.html">Eliminar Libro</a>
+        <a href="../obtenerLibro/obtener.html">Obtener Libros</a>
+        <a href="../modificarLibro/modificar.html">Modificar Libros</a>
     </header>
 
     <table>
         <thead>
             <tr>
-                <th>CI</th>
                 <th>Nombre</th>
-                <th>Apellido</th>
+                <th>Fecha</th>
+                <th>Precio</th>
           
             </tr>
         </thead>
-        <tbody id="cuerpoTablaUsuarios">
+        <tbody id="cuerpoTablaLibros">
         </tbody>
     </table>
 
     <form id="formModificar" method="post" name="formModificar">
-        <label for="id">ID (Cedula)</label>
-        <input type="text" name="id" id="id" required> <br>
-        <label for="ci">CI a editar</label>
-        <input type="text" name="ci" id="ci" required> <br>
+        <label for="id">ID</label>
+        <input type="number" name="id" id="id" required> <br>
         <label for="nombre">Nombre</label> 
         <input type="text" name="nombre" id="nombre" required> <br>
-        <label for="apellido">Apellido</label> 
-        <input type="text" name="apellido" id="apellido" required> <br>
-        <input type="submit" value="Modificar usuario"> <br>
+        <label for="fecha">Fecha</label> 
+        <input type="date" name="fecha" id="fecha" required> <br>
+        <label for="precio">Precio</label> 
+        <input type="number" name="precio" id="precio" required> <br>
+        <input type="submit" value="Modificar Libro"> <br>
     </form>
 </body>
 </html>
-
-<script>
-
-    // function textci(e) {
-    //     // if (Number.isInteger(e.target.value()) == false) {
-    //     //     alert('por favor ingrese un valor numerico')
-    //     // }
-    //    alert(e.target.value)
-    // }
-</script>

@@ -13,7 +13,7 @@ window.onload = () => {
 
         }
         let respuesta = await fetch(url, config);
-        let datos = await respuesta.json()
+        let datos = await respuesta.text()
         console.log(datos);
 
 
@@ -23,7 +23,7 @@ window.onload = () => {
         }
 
         else {
-            alert("Usuario agregado")
+            alert("Libro agregado")
         }
     }
     

@@ -1,8 +1,8 @@
 window.onload = () => {
-    obtenerUsuarios();
+    obtenerLibros();
 }
-async function obtenerUsuarios() {
-    let url = "../../../BACKEND/controlador/usuario.php?funcion=obtener";
+async function obtenerLibros() {
+    let url = "../../../BACKEND/controlador/libro.php?funcion=obtener";
     let respuesta = await fetch(url);
     let datos = await respuesta.json()
     console.log(datos);
@@ -13,28 +13,28 @@ async function obtenerUsuarios() {
 
 
 
-function cargarDatos(ci, nombre, apellido) {
+function cargarDatos(id,nombre, fecha, precio) {
 
-    document.querySelector("#id").value = ci;
-    document.querySelector("#ci").value = ci;
+    document.querySelector("#id").value = id;
     document.querySelector("#nombre").value = nombre;
-    document.querySelector("#apellido").value = apellido;
+    document.querySelector("#fecha").value = fecha;
+    document.querySelector("#precio").value = precio;
 }
 
 
 
 
-function Listar(usuarios) {
+function Listar(libros) {
 
-    let tbodyElement = document.querySelector("#cuerpoTablaUsuarios");
-    usuarios.forEach((usuario) => {
+    let tbodyElement = document.querySelector("#cuerpoTablaLibros");
+    libros.forEach((libro) => {
         tbodyElement.innerHTML += `
 
 <tr>
-    <td>${usuario.ci} </td>
-    <td>${usuario.nombre}</td>
-    <td>${usuario.apellido} </td>
-    <td><button onclick="cargarDatos('${usuario.ci}','${usuario.nombre}','${usuario.apellido}')">Modificar</button></td>
+    <td>${libro.nombre} </td>
+    <td>${libro.fecha}</td>
+    <td>${libro.precio} </td>
+    <td><button onclick="cargarDatos('${libro.id}','${libro.nombre}','${libro.fecha}','${libro.precio}')">Modificar</button></td>
 </tr>
         `;
     }

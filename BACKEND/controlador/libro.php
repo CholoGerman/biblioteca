@@ -26,18 +26,25 @@ function obtener()
     $resultado = (new libro())->obtener();
     echo json_encode($resultado);
 }
+
+function obtenerOrdenado()
+{
+    $modo = $_GET['modo'];
+    $resultado = (new libro())->filtrar($modo);
+    echo json_encode($resultado);
+}
 function agregar()
 {
-    $ci = $_POST['ci'];
     $nombre = $_POST['nombre'];
-    $apellido = $_POST['apellido'];
-    $resultado = (new libro())->agregar($ci, $nombre, $apellido);
+    $fecha = $_POST['fecha'];
+    $precio = $_POST['precio'];
+    $resultado = (new libro())->agregar($nombre, $fecha, $precio);
     echo json_encode($resultado);
 }
 function eliminar()
 {
-    $ci = $_POST['ci'];
-    $resultado = (new libro())->eliminar($ci);
+    $id = $_POST['id'];
+    $resultado = (new libro())->eliminar($id);
     echo json_encode($resultado);
 }
 
@@ -45,10 +52,10 @@ function eliminar()
 function editar()
 {
     $id = $_POST['id'];
-    $ci = $_POST['ci'];
     $nombre = $_POST['nombre'];
-    $apellido = $_POST['apellido'];
+    $fecha = $_POST['fecha'];
+    $precio = $_POST['precio'];
 
-    $resultado = (new libro())->editar($id, $ci, $nombre, $apellido);
+    $resultado = (new libro())->editar($id, $nombre, $fecha, $precio);
     echo json_encode($resultado);
 }
